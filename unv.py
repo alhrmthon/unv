@@ -89,7 +89,7 @@ async def encode(client, message):
     bot.send_message(message.chat.id, text=f"*اختر نوع التشفير \n\n  Choose the type of encryption ,🔥*",parse_mode="markdown",reply_markup=Keyy)
     
 @app.callback_query_handler(func=lambda call: True)
-def virus_call(call):
+async def virus_call(client, call):
     if call.data =="base64":
         virus_en(call.message)
     elif call.data == "lambda":
