@@ -76,8 +76,8 @@ DEV : @VR_LA
     bot.send_message(message.chat.id, text =f"*{text}*",parse_mode="markdown")
 
 
-@app.message_handler(commands=['encode'])
-def start_encode(message):
+@app.on_message(ay.command("encode"))
+async def encode(client, message):
     call1 = types.InlineKeyboardButton(text = "base64 🔐", callback_data = 'base64')
     call2 = types.InlineKeyboardButton(text = "lambda 🔐", callback_data = 'lambda')
     call3 = types.InlineKeyboardButton(text = "marshal 🔐", callback_data = 'marshal')
