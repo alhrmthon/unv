@@ -1,0 +1,8 @@
+#virus
+cryptg
+asyncio
+telebot
+requests
+pyrogram
+pyTelegramBotAPI
+random
