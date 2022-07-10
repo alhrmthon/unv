@@ -7,7 +7,7 @@ botf = True
 api_id = int(os.environ.get("APP_ID"))
 api_hash = os.environ.get("API_HASH")
 token = os.environ.get("TOKEN")
-app = Client("tag", bot_token=token, api_id = api_id, api_hash = api_hash)
+app = Client("unv", bot_token=token, api_id = api_id, api_hash = api_hash)
 
 
 data_json = {
@@ -59,7 +59,7 @@ class en():
 
 
 
-@bot.message_handler(commands=['start'])
+@app.message_handler(commands=['start'])
 def stagrt(message): 
     name_user = message.chat.first_name
     text=f"""
@@ -76,7 +76,7 @@ DEV : @VR_LA
     bot.send_message(message.chat.id, text =f"*{text}*",parse_mode="markdown")
 
 
-@bot.message_handler(commands=['encode'])
+@app.message_handler(commands=['encode'])
 def start_encode(message):
     call1 = types.InlineKeyboardButton(text = "base64 🔐", callback_data = 'base64')
     call2 = types.InlineKeyboardButton(text = "lambda 🔐", callback_data = 'lambda')
@@ -88,7 +88,7 @@ def start_encode(message):
     Keyy.add(call1,call2,call3,call4,call6)
     bot.send_message(message.chat.id, text=f"*اختر نوع التشفير \n\n  Choose the type of encryption ,🔥*",parse_mode="markdown",reply_markup=Keyy)
     
-@bot.callback_query_handler(func=lambda call: True)
+@app.callback_query_handler(func=lambda call: True)
 def virus_call(call):
     if call.data =="base64":
         virus_en(call.message)
@@ -102,7 +102,7 @@ def virus_call(call):
 
 def virus_en(message):
     bot.send_message(message.chat.id, text ="*Send file in base64 : *",parse_mode="markdown")
-    @bot.message_handler(content_types=['document'])
+    @app.message_handler(content_types=['document'])
     def save(message):
         chars = 'abcdefghijklmnopqrstuvwxyz1234567890'
         file_info = bot.get_file(message.document.file_id)
@@ -126,7 +126,7 @@ def virus_en(message):
 
 def virus_cc(message):
     bot.send_message(message.chat.id, text ="*Send file in lambda : *",parse_mode="markdown")
-    @bot.message_handler(content_types=['document'])
+    @app.message_handler(content_types=['document'])
     def save(message):
         chars = 'abcdefghijklmnopqrstuvwxyz1234567890'
         file_info = bot.get_file(message.document.file_id)
@@ -149,7 +149,7 @@ def virus_cc(message):
 
 def virus_er(message):
     bot.send_message(message.chat.id, text ="*Send file in marshal : *",parse_mode="markdown")
-    @bot.message_handler(content_types=['document'])
+    @app.message_handler(content_types=['document'])
     def save(message):
         chars = 'abcdefghijklmnopqrstuvwxyz1234567890'
         file_info = bot.get_file(message.document.file_id)
@@ -173,7 +173,7 @@ def virus_er(message):
 
 def virus_et(message):
     bot.send_message(message.chat.id, text ="*Send file in zlib : *",parse_mode="markdown")
-    @bot.message_handler(content_types=['document'])
+    @app.message_handler(content_types=['document'])
     def save(message):
         chars = 'abcdefghijklmnopqrstuvwxyz1234567890'
         file_info = bot.get_file(message.document.file_id)
