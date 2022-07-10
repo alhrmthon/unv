@@ -1,5 +1,6 @@
-import telebot,random,os,pyrogram
+import telebot,random,os,pyrogram,asyncio
 from telebot import types
+from pyrogram import Client,filters,enums
 import py_compile,json,base64, marshal, zlib,os
 botf = True
 
