@@ -59,8 +59,8 @@ class en():
 
 
 
-@app.message_handler(commands=['start'])
-def stagrt(message): 
+@app.on_message(ay.command("start"))
+async def start(client, message):
     name_user = message.chat.first_name
     text=f"""
 * مرحبأ  {name_user} *
